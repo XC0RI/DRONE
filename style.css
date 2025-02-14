@@ -1,13 +1,17 @@
 h1 {
   font-size: 5em;
   color: white;
+  text-decoration: none;
 }
 h2 {
   font-size: 1em;
   color: white;
+  text-decoration: none;
 }
 h3 {
   font-size: 0.8em;
+  color: white;
+  text-decoration: none;
 }
 img {
   width: 100%;
