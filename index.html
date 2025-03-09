@@ -1,39 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Eat my shorts!" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dr0ne.world</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header>
-      <h1>
-        DR<a href="2nd/dr0neteam.html"><em>O</em></a
-        >NE
-      </h1>
-    </header>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { width: 100vw; height: 100vh; overflow: hidden; }
+        .container { display: flex; width: 100%; height: 100%; position: relative; }
+        .split { flex: 1; background-size: cover; background-position: center; }
+        .center-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            cursor: pointer;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="split" id="image1"></div>
+        <div class="split" id="image2"></div>
+        <div class="center-text" onclick="setImages()">DR<em>O</em>NE</div>
+    </div>
 
-    <nav></nav>
-    <main>
-      <a href="mailto:1@dr0ne.world">
-        <h2 style="background-color: rgb(0, 0, 0)">1@dr0ne.world</h2>
-      </a>
-    </main>
+    <script>
+        const imageFolder = "images/";
+        const imageCount = 6;
 
-    <footer>
-      <h3>Kian Matine<br />Philipp Burwinkel</h3>
-    </footer>
-    <br />
-    <img src="images/doppelgangerpainting.jpg" alt="Doppelgänger Painting" />
+        function getRandomImage() {
+            const randomIndex = Math.floor(Math.random() * imageCount) + 1;
+            return `${imageFolder}image${randomIndex}.jpg`;
+        }
 
-    <hr />
-    <hr />
-    <hr />
+        function setImages() {
+            const img1 = getRandomImage();
+            let img2;
+            do { img2 = getRandomImage(); } while (img2 === img1);
 
-    <a href="https://www.instagram.com/iphoneflyingbomber">
-      <img src="images/lynchguy.jpg" alt="Instagram Profilbild" />
-    </a>
-  </body>
+            console.log("Selected images:", img1, img2);
+
+            const container = document.querySelector('.container');
+            if (!container) {
+                console.error("Container not found!");
+                return;
+            }
+
+            const isVertical = window.innerWidth > window.innerHeight;
+            container.style.flexDirection = isVertical ? 'row' : 'column';
+            
+            document.getElementById('image1').style.backgroundImage = `url('${img1}')`;
+            document.getElementById('image2').style.backgroundImage = `url('${img2}')`;
+        }
+
+        window.addEventListener('load', setImages);
+        window.addEventListener('resize', setImages);
+    </script>
+</body>
 </html>
