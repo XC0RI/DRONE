@@ -18,8 +18,31 @@
             font-weight: bold;
             color: white;
             text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
-            cursor: pointer;
+            cursor: cell;
             z-index: 10;
+        }
+        .small-text-link {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: .8rem;
+            font-weight:normal;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            cursor: cell;
+            z-index: 10;
+            text-decoration: none;
+        }
+        .small-text {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: .8rem;
+            font-weight:normal;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            z-index: 10;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -28,7 +51,11 @@
         <div class="split" id="image1"></div>
         <div class="split" id="image2"></div>
         <div class="center-text" onclick="setImages()">DR<em>O</em>NE</div>
+        <p class="small-text" style="bottom: 3rem">Philipp Burwinkel&nbsp;&nbsp;/&nbsp;&nbsp;Kian Matine</p>
+        <a class="small-text-link" href="mailto:1@dr0ne.world" style="bottom: 2rem">1@dr0ne.world</a>
+        <a class="small-text-link" href="https://www.instagram.com/iphoneflyingbomber" style="bottom: 1rem">@iphoneflyingbomber</a>
     </div>
+    
 
     <script>
         const imageFolder = "images/";
